@@ -1,0 +1,27 @@
+ <div class="col {{cols}}">
+     	<div class="form-group mb-0">
+		 <label>{{label}}</label>
+			<button class="btn btn-light dropdown-toggle btn-block text-left border" type="button" data-toggle="dropdown" style="padding: 7px;" ng-hide="!multiple && !isEmpty(selectedItems)">
+				<span>Selecciona</span>
+				<span class="caret" style="margin-top: 8px;float: right;"></span>
+			</button>
+			<ul class="dropdown-menu">
+			<li style="padding: 7px;">
+				<input type="text" data-ng-model="inputPicker" class="form-control" autocomplete="off" placeholder="{{label}}"/>
+			</li>
+			<li data-ng-repeat="item in sourceList">
+				<a class="clickTag btn btn-light btn-sm btn-block text-left p-0 pl-2" data-ng-click="selectItem(item)">{{getItemLabel(item)}}</a>
+			</li>
+			</ul>
+		</div>
+		<span class="text-sm text-danger" data-ng-if="mandatory && isEmpty(selectedItems)">Requerido</span>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="btn btn-sm btn-outline-secondary text-xs p-0 pl-1 pr-1" ng-class="{'btn-xs': multiple, 'text-sm': multiple, 'btn-sm': !multiple, 'text-md': !multiple, 'btn-block': !multiple}" data-ng-repeat="item in selectedItems">
+					{{getItemLabel(item)}}
+					<i class="fa fa-times clickTag" ng-click="dropItem(item)"></i>
+				</div>
+		</div>
+		</div>
+ </div>
+

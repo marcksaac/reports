@@ -1,0 +1,47 @@
+<div layout="column" layout-align="center center">
+
+  <md-card style="background-color: rgba(255,255,255,0.8)">
+   <md-card-content class="text-center" layout-align="center center">
+       <h3>
+         <md-icon>business</md-icon>
+         <span translate>lbl.companies</span>
+       </h3>
+   </md-card-content>
+   <md-card-content>
+     <div layout-xs="column" layout-gt-xs="row" layout-align="center center">
+       <md-button layout-padding  ng-repeat="item in companies | orderBy: '-id'" class="selectable md-rised" ng-click="search.company=item.id">
+         <div class="divImg align-center" style="background-image:url('{{item.logo}}');height:100px;width:100px;"></div>
+         <div class="md-title text-center">{{item.name}}</div>
+         <div class="md-caption text-center">{{item.from}} - {{item.to}}</div>
+       </md-button>
+     </div>
+   </md-card-content>
+  </md-card>
+
+  <md-card style="background-color: rgba(255,255,255,0.8)">
+   <md-card-content class="text-center" layout-align="center center">
+       <h3>
+         <md-icon>work</md-icon>
+         <span translate>lbl.projects</span>
+       </h3>
+   </md-card-content>
+   <md-card-content>
+     <div layout-xs="column" layout-align="center center">
+       <div layout-padding ng-repeat="item in projects | filter : search">
+         <md-divider></md-divider>
+         <div class="divImg align-center" style="background-image:url('{{companiesService.getById(item.company).logo}}');height:100px;width:100px;"></div>
+         <div class="md-title text-center">{{item.name}}</div>
+         <div layout="row" layout-wrap>
+            <div layout-padding flex="100" flex-gt-sm="50" ng-repeat="stackItem in item.stack"
+              <div flex="100" ng-repeat="stackItem in item.stack"  md-colors="{background: 'indigo'}"
+              class="text-center selectable grayscale" >
+                {{stackItem}}
+              </div>
+            </div>
+        </div>
+       </div>
+     </div>
+   </md-card-content>
+  </md-card>
+
+</div>

@@ -1,0 +1,96 @@
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="img/companies/openpay.png">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
+  <script>
+ // var CONTEXT_PATH = "http://localhost:8080";
+   var CONTEXT_PATH = "http://192.168.0.6";
+  </script>
+</head>
+<body ng-app="app" ng-controller="mainCtrl">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item" ng-if="isNotLogged()">
+          <a class="nav-link" href="#!login">Ingresar</a>
+        </li>
+        <li class="nav-item" ng-if="isLogged()">
+          <a class="nav-link" href="#!v1/reports/reports">Ventas</a>
+        </li>
+        <li class="nav-item" ng-if="isLogged()">
+          <a class="nav-link" href="#!v1/reports/sales-summary">Sumarizado de ventas</a>
+        </li>
+        <li class="nav-item" ng-if="isLogged()">
+          <a class="nav-link" href="#!v1/reports/refunds">Reembolsos</a>
+        </li>
+        <li class="nav-item" ng-if="isLogged()">
+          <a class="nav-link clickTag" ng-click="logout()">Salir</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div ng-view></div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-aria.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  
+  <script src="js/angular/angular-route.js"></script>
+  <script src="js/angular/angular-cookies.min.js"></script>
+	<script src="js/angular/angular-touch.min.js" type="text/javascript"></script>
+	<script src="js/angular/angular-sanitize.min.js" type="text/javascript"></script>
+	<script src="js/angular/angular-translate.min.js" type="text/javascript"></script>
+	<script src="js/angular/angular-translate-loader-static-files.js" type="text/javascript"></script>
+
+	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+	<script src="js/utils/general.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/routes.js"></script>
+	<script src="js/i18n/config.js"></script>
+
+  <script src="js/services/request-services.js"></script>
+  <script src="js/services/user-service.js"></script>
+  <script src="js/services/ng-controller-commons-service.js"></script>
+  <script src="js/services/ng-datatable-commons-service.js"></script>
+  <script src="js/services/ng-autocomplete-service.js"></script>
+  <script src="js/services/ng-merchant-picker-service.js"></script>
+
+
+	<script src="js/security-filter.js"></script>
+
+	<script src="js/directives/general.js"></script>
+	<script src="js/directives/ng-autocomplete-merchants.js"></script>
+
+  <script src="js/controllers/reportsController.js"></script>
+  <script src="js/controllers/antifraudDataController.js"></script>
+  <script src="js/controllers/loginController.js"></script>
+  <script src="js/controllers/main.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			AOS.init({
+				offset: 100,
+				duration: 400,
+				easing: 'ease-in-sine',
+				delay: 200
+			});
+    });
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,234 @@
+<div  ng-controller="antifraudDataController">
+    <div class="card bg-light-t mt-3">
+      <form name="salesForm" novalidate>
+      <div class="card-body">
+        <h1>Ventas</h1>
+        <hr/>
+        <div class="row">
+          <div class="col-3">
+            <div class="form-group">
+              <label>Desde <small>{{dates.from | date:'yyyy-MM-dd HH:mm:ss'}}</small></label>
+              <input ng-model="dates.from" name="datesForm" type="datetime-local" required ng-max="dates.to" class="form-control"/>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Hasta <small>{{dates.to | date:'yyyy-MM-dd HH:mm:ss'}}</small></label>
+              <input ng-model="dates.to" name="datesForm" type="datetime-local" required ng-min="dates.from" class="form-control"/>
+            </div>
+          </div>
+          
+            <div class="col-3">
+                <ng-merchant-autocomplete
+                    cols="" target="filter.merchants" 
+                    field="id" label="Comercios" mandatory="false" multiple="true">
+                </ng-merchant-autocomplete>
+            </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Estado</label>
+              <select ng-model="filter.status" multiple class="form-control selectpicker">
+                <option value="COMPLETED">Completadas</option>
+                <option value="IN_PROGRESS">En progreso</option>
+                <option value="CHARGE_PENDING">Pendientes de pago</option>
+                <option value="FAILED">Fallidas</option>
+                <option value="CANCELLED">Canceladas</option>
+                <option value="EXPIRED">Expiradas</option>
+                <option value="ERROR">Errores</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Moneda</label>
+              <select ng-model="filter.currencies" multiple class="form-control selectpicker">
+                <option value="MXN">MXN</option>
+                <option value="USD">USD</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Gateways</label>
+              <select ng-model="filter.gateways" multiple class="form-control selectpicker">
+                <option value="PROSA">PROSA</option>
+                <option value="PROSA_ISO">PROSA_ISO</option>
+                <option value="AMEX_ISO">AMEX_ISO</option>
+                <option value="BANCOMER">BANCOMER</option>
+                <option value="DIESTEL">DIESTEL</option>
+                <option value="CODI">CODI</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Producto</label>
+              <select ng-model="filter.operators" multiple class="form-control selectpicker">
+                <option value="PROSA">Visa/Mastercard</option>
+                <option value="AMEX">American express</option>
+                <option value="STP">Banco</option>
+                <option value="PAYNET">Tienda</option>
+                <option value="CODI">CODI</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Tipo de transacci&oacute;n</label>
+              <select ng-model="filter.idTransactionTypes" multiple class="form-control selectpicker">
+                <option value="3">Tarjeta</option>
+                <option value="16">Pago en tienda</option>
+                <option value="26">Deposito en tienda</option>
+                <option value="15">Banco</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Marca de tarjeta</label>
+              <select ng-model="filter.cardBrands" multiple class="form-control selectpicker">
+                <option value="VISA">VISA</option>
+                <option value="MASTERCARD">MASTERCARD</option>
+                <option value="CARNET">CARNET</option>
+                <option value="AMERICAN_EXPRESS">AMERICAN_EXPRESS</option>
+                <option value="JCB">JCB</option>
+                <option value="DINERS">DINERS</option>
+                <option value="MAESTRO">MAESTRO</option>
+                <option value="OTHER">OTHER</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Reembolsada</label>
+              <select ng-model="filter.refunded" class="form-control">
+                <option value="">Todas</option>
+                <option value="1">Si</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>4 &uacute;ltimos digitos de tarjeta</label>
+              <input ng-model="filter.card4Digits" type="text" numeric-only maxlength="4" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Bin</label>
+              <input ng-model="filter.bin" type="text" numeric-only maxlength="6" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Openpay Id</label>
+              <input ng-model="filter.transactionId" type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Order Id</label>
+              <input ng-model="filter.orderId" type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Autorizaci&oacute;n</label>
+              <input ng-model="filter.authorization" type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Afiliaci&oacute;n</label>
+              <input ng-model="filter.affiliationNumber" type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Referencia CIE</label>
+              <input ng-model="filter.cieReference" type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="form-group">
+              <label>Referencia paynet</label>
+              <input ng-model="filter.paynetReference" type="text" class="form-control">
+            </div>
+          </div>
+
+        </div>
+        <hr/>
+        <div class="row">
+          <div class="col-2">
+            <div class="form-group">
+                <label>Registros <small>({{list.length}})</small> </label>
+                <select ng-model="tableRequest.limit" convert-to-number class="form-control">
+                    <option selected="selected" value=50>50</option>
+                    <option value=100>100</option>
+                </select>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+                <label>P&aacute;gina</label>
+                <input ng-model="page" type="number" step="1" min="0" class="text-center form-control" ng-disabled="processing || salesForm.$invalid" >
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="form-group">
+              <label>Columnas</label>
+              <select ng-model="columns" multiple class="form-control selectpicker">
+                <option value="transactionId">Id</option>
+                <option value="rejectedReason">Rejected reason</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col text-right">
+            <button class="btn btn-info" ng-disabled="prosessingCsv || salesForm.$invalid" ng-click="getCsv()">
+              <i class="fa fa-cog fa-spin" ng-if="prosessingCsv"></i><i class="fa fa-cloud-download"></i> Csv
+            </button>
+            <button class="btn btn-primary" ng-disabled="processing || salesForm.$invalid" ng-click="search()">Buscar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    </div>
+
+    <table class="table table-hover table-dark table-striped table-sm mt-2 mb-0">
+        <thead>
+            <th ng-if="hasColumn('transactionId')">Id</th>
+            <th ng-if="hasColumn('rejectedReason')">Rejected reason</th>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="item in list">
+            <td ng-if="hasColumn('transactionId')">{{item.transactionId}}</td>
+            <td ng-if="hasColumn('merchantName')">{{item.rejectedReason}}</td>
+          </tr>
+        </tbody>
+    </table>
+
+    <div class="row text-center mt-0" ng-if="isEmpty(list)">
+        <div class="col text-lg bg-light">
+            No hay registros
+        </div>
+    </div>
+</div>

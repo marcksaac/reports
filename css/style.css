@@ -1,0 +1,178 @@
+body {
+  background-image: url('/img/back.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+.main-container{
+  background-color: rgba(0,0,0,0.5);
+  height: 100%;
+}
+
+.text-xxs{
+	font-size: 0.5rem;
+}
+
+.text-xs{
+	font-size: 0.7rem;
+}
+
+.text-sm{
+	font-size: 0.9rem;
+}
+
+.text-md{
+	font-size: 1rem;
+}
+
+.text-lg{
+	font-size: 1.2rem;
+}
+
+.text-xl{
+	font-size: 1.4rem;
+}
+
+.align-center{
+	margin: 0 auto;
+}
+
+.click{
+	cursor: pointer;
+}
+
+.divImg {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-origin: content-box;
+	background-size: contain;
+}
+
+.bg-blur {
+    backdrop-filter: blur(10px);
+}
+
+.bg-light-t {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.grayscale {
+	opacity: 0.6;
+	-webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+
+    -webkit-transition: all ease-in-out 0.3s; /* Safari */
+    transition: all ease-in-out 0.3s;
+}
+
+.grayscale:hover {
+	opacity: 1;
+	-webkit-filter: grayscale(0%);
+	filter: grayscale(0%);
+}
+
+.selectable {
+	cursor: pointer;
+    -webkit-transition: all ease-in-out 0.3s; /* Safari */
+    transition: all ease-in-out 0.3s;
+}
+
+.selectable:hover{
+	z-index: 2;
+    -ms-transform: scale(1.1, 1.1); /* IE 9 */
+    -webkit-transform: scale(1.1, 1.1); /* Safari */
+    transform: scale(1.1, 1.1);
+}
+
+.material-icons{
+	vertical-align: bottom;
+}
+
+.buttonLanguage{
+  position: fixed;
+  bottom: 5px;
+  right: 0px;
+  z-index: 3;
+}
+
+.rounded {
+  border-radius: 100px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.clickTag {
+	cursor:pointer;
+}
+input.ng-invalid {
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-duration: 0.4s;
+    -webkit-animation-name: inputError;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 0.4s;
+    animation-name: inputError;
+    box-shadow: 0px 0px 5px red;
+}
+
+.input.ng-valid.ng-untouched {
+    border-color: #BDBDC2;
+}
+
+.input.ng-invalid.ng-untouched {
+    border-color: #BDBDC2;
+    box-shadow: none;
+    animation-name: none;
+}
+
+input.ng-dirty {
+    color: #000485;
+}
+
+input.ng-valid {
+    border-color: green;
+}
+
+input.form-control.ng-invalid {
+    border-color: red;
+}
+
+input.form-control.ng-dirty {
+    color: #000485;
+}
+
+input.form-control.ng-valid {
+    border-color: green;
+}
+
+select.form-control.ng-invalid {
+    border-color: red;
+}
+
+select.form-control.ng-dirty {
+    color: #000485;
+}
+
+select.form-control.ng-valid {
+    border-color: green;
+}
+
+select.form-control.ng-valid.ng-untouched {
+    border-color: #BDBDC2;
+}
+
+input.form-control.ng-valid.ng-untouched {
+    border-color: #BDBDC2;
+}
+
+.bootstrap-select {
+    height: 40px;
+}
+.bootstrap-select button {
+    height: 40px;
+}

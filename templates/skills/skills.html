@@ -1,0 +1,29 @@
+<div layout="column" layout-align="center center">
+
+  <md-card style="background-color: rgba(255,255,255,0.8)">
+   <md-card-content class="text-center" layout-align="center center">
+       <h3>
+         <md-icon>code</md-icon>
+         <span translate>lbl.menu.skills</span>
+       </h3>
+   </md-card-content>
+   <md-card-content>
+     <div layout-xs="column" layout-align="center center">
+       <div layout-padding ng-repeat="item in categories">
+         <md-divider></md-divider>
+         <div class="divImg align-center" style="background-image:url('{{item.logo}}');height:100px;width:100px;"></div>
+         <div class="md-title text-center">{{item.name}}</div>
+         <div layout="row" layout-wrap>
+            <div flex="100" flex-gt-sm="25" ng-repeat="skillItem in skillsService.getSkillsByCategory(item.id)">
+              <div layout-padding flex="100" md-colors="{background: 'indigo'}"
+              class="text-center selectable grayscale" >
+                {{skillItem.name}}
+              </div>
+            </div>
+        </div>
+       </div>
+     </div>
+   </md-card-content>
+  </md-card>
+
+</div>
