@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css">
   <script>
- // var CONTEXT_PATH = "http://localhost:8080";
-   var CONTEXT_PATH = "http://192.168.0.6:8080";
+ //var CONTEXT_PATH = "https://localhost:8443";
+   var CONTEXT_PATH = "https://192.168.0.6:8443";
   </script>
 </head>
 <body ng-app="app" ng-controller="mainCtrl">
@@ -24,7 +24,7 @@
           <a class="nav-link" href="#!v1/reports/reports">Ventas</a>
         </li>
         <li class="nav-item" ng-if="isLogged()">
-          <a class="nav-link" href="#!v1/reports/sales-summary">Sumarizado de ventas</a>
+          <a class="nav-link" href="#!v1/reports/antifraud-data">Antifraude</a>
         </li>
         <li class="nav-item" ng-if="isLogged()">
           <a class="nav-link" href="#!v1/reports/refunds">Reembolsos</a>

@@ -2,7 +2,7 @@
     <div class="card bg-light-t mt-3">
       <form name="salesForm" novalidate>
       <div class="card-body">
-        <h1>Ventas</h1>
+        <h1>Antifraude</h1>
         <hr/>
         <div class="row">
           <div class="col-3">
@@ -80,18 +80,6 @@
 
           <div class="col-3">
             <div class="form-group">
-              <label>Tipo de transacci&oacute;n</label>
-              <select ng-model="filter.idTransactionTypes" multiple class="form-control selectpicker">
-                <option value="3">Tarjeta</option>
-                <option value="16">Pago en tienda</option>
-                <option value="26">Deposito en tienda</option>
-                <option value="15">Banco</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="col-3">
-            <div class="form-group">
               <label>Marca de tarjeta</label>
               <select ng-model="filter.cardBrands" multiple class="form-control selectpicker">
                 <option value="VISA">VISA</option>
@@ -159,20 +147,6 @@
             </div>
           </div>
 
-          <div class="col-3">
-            <div class="form-group">
-              <label>Referencia CIE</label>
-              <input ng-model="filter.cieReference" type="text" class="form-control">
-            </div>
-          </div>
-
-          <div class="col-3">
-            <div class="form-group">
-              <label>Referencia paynet</label>
-              <input ng-model="filter.paynetReference" type="text" class="form-control">
-            </div>
-          </div>
-
         </div>
         <hr/>
         <div class="row">
@@ -221,7 +195,7 @@
         <tbody>
           <tr ng-repeat="item in list">
             <td ng-if="hasColumn('transactionId')">{{item.transactionId}}</td>
-            <td ng-if="hasColumn('merchantName')">{{item.rejectedReason}}</td>
+            <td ng-if="hasColumn('rejectedReason')">{{item.rejectedReason}}</td>
           </tr>
         </tbody>
     </table>
