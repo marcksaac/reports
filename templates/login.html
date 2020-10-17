@@ -1,27 +1,30 @@
-<div class="col d-flex justify-content-center" ng-controller="loginController">
+<div class="col d-flex justify-content-center mt-5" data-aos="fade-up" ng-controller="loginController">
     <div class="card w-50">
       <div class="card-body">
         <h1>Ingresar</h1>
+        <a href="{{CONTEXT_PATH}}" target="_blank">Agrega el certificado de los servicios antes empezar</a>
+        <form name="loginForm">
         <div class="row">
           
           <div class="col-12">
             <div class="form-group">
               <label>Usuario</label>
-              <input ng-model="login.username" type="email" class="form-control">
+              <input ng-model="login.username" name="username" type="email" class="form-control" required>
             </div>
           </div>
 
           <div class="col-12">
             <div class="form-group">
               <label>Password</label>
-              <input ng-model="login.password" type="password" class="form-control">
+              <input ng-model="login.password" name="password" type="password" class="form-control" required>
             </div>
           </div>
 
           <div class="col-12">
-            <button class="btn btn-primary" ng-click="sendLogin()">Ingresar</button>
+            <button class="btn btn-primary" ng-click="sendLogin()" ng-disabled="loginForm.$invalid">Ingresar</button>
           </div>
         </div>
+      </form>
       </div>
     </div>
 </div>

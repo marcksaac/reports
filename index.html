@@ -59,6 +59,7 @@
 	<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
 	<script src="js/utils/general.js"></script>
+	<script src="js/utils/date-utils.js"></script>
   <script src="js/app.js"></script>
   <script src="js/routes.js"></script>
 	<script src="js/i18n/config.js"></script>
@@ -70,11 +71,11 @@
   <script src="js/services/ng-autocomplete-service.js"></script>
   <script src="js/services/ng-merchant-picker-service.js"></script>
 
-
 	<script src="js/security-filter.js"></script>
 
 	<script src="js/directives/general.js"></script>
 	<script src="js/directives/ng-autocomplete-merchants.js"></script>
+	<script src="js/directives/date-range.js"></script>
 
   <script src="js/controllers/reportsController.js"></script>
   <script src="js/controllers/antifraudDataController.js"></script>
@@ -84,9 +85,10 @@
 	<script>
 		$(document).ready(function() {
 			AOS.init({
-				offset: 100,
+				offset: -200,
 				duration: 400,
-				easing: 'ease-in-sine',
+        easing: 'ease-in-sine',
+        once: true,
 				delay: 200
 			});
     });

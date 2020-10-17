@@ -1,0 +1,66 @@
+<div class="col-6">
+	<div class="row">
+		<div class="col-6">
+			<div class="form-group">
+				<label class="w-100">Desde 
+					<small>{{dateFrom | date:'yyyy-MM-dd HH:mm:ss'}}</small> 
+					<i class="fa fa-sun-o fa-lg selectable text-info pull-right" ng-click="atStartOfDay()"></i>
+				</label>
+				<input ng-model="dateFrom" name="datesForm" type="datetime-local" required ng-max="dateTo" class="form-control"/>
+			</div>
+		</div>
+	
+		<div class="col-6">
+			<div class="form-group">
+				<label class="w-100">Hasta 
+					<small>{{dateTo | date:'yyyy-MM-dd HH:mm:ss'}}</small> 
+					<label class="dropdown pull-right ml-1">
+						<i class="fa fa-clock-o fa-lg selectable text-info " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						  <div class="dropdown-item selectable" ng-click="thisMonth()">Este mes</div>
+						  <div class="dropdown-item selectable" ng-click="lastMonth()">Mes anterior</div>
+						  <div class="dropdown-item selectable" ng-click="last30Days()">30 dias atras</div>
+						  <div class="dropdown-item selectable" ng-click="last3Months()">3 meses atras</div>
+						  <div class="dropdown-item selectable" ng-click="last6Months()">6 meses atras</div>
+						  <div class="dropdown-item selectable" ng-click="thisYear()">Este año</div>
+						  <div class="dropdown-item selectable" ng-click="openCustomRange()">Otro</div>
+						</div>
+					</label>
+					<i class="fa fa-moon-o fa-lg selectable text-info pull-right" ng-click="atEndOfDay()"></i>
+				</label>
+				<input ng-model="dateTo" name="datesForm" type="datetime-local" required ng-min="dateFrom" class="form-control"/>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="modal openCustomRangeModal" tabindex="-1" role="dialog" data-backdrop="false">
+		<div class="modal-dialog" >
+		  <div class="modal-content">
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-3">
+						<input type="number" class="form-control" ng-model="numberLast" step="1" min="1" max="getMaxLast()"/>
+					</div>
+					<div class="col-4">
+						<select type="number" class="form-control" ng-model="rangeType">
+							<option value="hours">Horas</option>
+							<option value="days" selected>Dias</option>
+							<option value="months">Meses</option>
+						</select>
+					</div>
+					<div class="col-4">
+						<button ng-click="selectRange()" class="btn btn-block btn-primary">
+							{{numberLast}} {{rangeType | rangeTypeFilter}} atras
+						</button>
+					</div>
+					<div class="col-1 pt-2">
+						<i class="fa fa-lg fa-times text-danger selectable" ng-click="closeModal()"></i>
+					</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+</div>

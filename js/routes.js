@@ -1,5 +1,8 @@
 app.config(function($routeProvider) {
 	$routeProvider
+	.when("/", {
+		templateUrl : "templates/welcome.html"
+	})
 	.when("/logout", {
 	  template : "<div ng-init='logout()'></div>"
 	})

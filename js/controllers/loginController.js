@@ -1,6 +1,7 @@
 app.controller('loginController', function($scope, $location, userService, controllerCommonsService) {
 
 	controllerCommonsService.init($scope);
+	$scope.CONTEXT_PATH = CONTEXT_PATH;
 
 	$scope.login = {
 		username: null,

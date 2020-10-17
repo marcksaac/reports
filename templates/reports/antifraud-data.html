@@ -1,23 +1,12 @@
-<div  ng-controller="antifraudDataController">
+<div  ng-controller="antifraudDataController" data-aos="fade-up">
     <div class="card bg-light-t mt-3">
       <form name="salesForm" novalidate>
       <div class="card-body">
         <h1>Antifraude</h1>
         <hr/>
         <div class="row">
-          <div class="col-3">
-            <div class="form-group">
-              <label>Desde <small>{{dates.from | date:'yyyy-MM-dd HH:mm:ss'}}</small></label>
-              <input ng-model="dates.from" name="datesForm" type="datetime-local" required ng-max="dates.to" class="form-control"/>
-            </div>
-          </div>
-
-          <div class="col-3">
-            <div class="form-group">
-              <label>Hasta <small>{{dates.to | date:'yyyy-MM-dd HH:mm:ss'}}</small></label>
-              <input ng-model="dates.to" name="datesForm" type="datetime-local" required ng-min="dates.from" class="form-control"/>
-            </div>
-          </div>
+          
+          <ng-date-range date-from="dates.from" date-to="dates.to"></ng-date-range>
           
             <div class="col-3">
                 <ng-merchant-autocomplete
